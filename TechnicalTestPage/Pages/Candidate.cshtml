@@ -1,0 +1,72 @@
+﻿@page
+@model TechnicalTestPage.Pages.CandidateModel
+@{
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Registrar candidato
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="row" id="divRegistered">
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <label for="inputName" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="inputName" required>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <label for="inputEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail" required>
+                                </div>
+                                <hr />
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <button type="button" class="btn btn-primary" id="btnRegister">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row mt-5">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <table class="table table-striped table-hover table-loader" style="width:100%" id="tableData"></table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar candidato</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <label for="inputNameEdit" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputNameEdit" required>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <label for="inputEmailEdit" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmailEdit" required>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btnSaveEdit">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/modules/prospect/candidate.js" type="module" asp-append-version="true"></script>
+}
