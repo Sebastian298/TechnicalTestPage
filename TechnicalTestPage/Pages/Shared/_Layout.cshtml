@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - TechnicalTestPage</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/TechnicalTestPage.styles.css" asp-append-version="true" />
+    <link href="~/lib/datatable/datatable.bundle.css" rel="stylesheet" />
     @await RenderSectionAsync("Styles",required:false);
 </head>
 <body>
@@ -21,13 +21,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/">Vacantes</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Vacancy">Vacantes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/">Candidatos</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Candidate">Candidatos</a>
                         </li>
                         <li>
-                            <a class="nav-link text-dark" asp-area="" asp-page="/">Entrevistas</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Interview">Entrevistas</a>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +48,9 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="~/lib/sweetalert/sweet-alert.all.min.js"></script>
+    <script src="~/lib/datatable/datatable.bundle.js"></script>
+    <script src="https://kit.fontawesome.com/b33f5ed4ee.js" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
