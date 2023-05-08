@@ -5,7 +5,9 @@ const validateInputText = (inputsId = []) => {
         const input = document.getElementById(item);
         input.addEventListener('input', () => {
             const specialChars = /[`0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-            input.value = specialChars.test(input.value) ? '' : input.value;
+            if (specialChars.test(input.value.slice(-1))) {
+                input.value = input.value.slice(0, -1);
+            }
         });
     })
 }
@@ -25,6 +27,24 @@ const showMessageToUser = (config = {}) => {
         title: config.title,
         text: config.message
     });
+}
+
+const assignSelect2Format = (selectId='',json=[]) => {
+    $(`#${selectId}`).select2({
+        data: json || [],
+        width: '100%'
+    });
+}
+
+const getCurrentDatetime = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
 
 const structJsonForDatatable = (request = {}) => {
@@ -73,7 +93,7 @@ const structJsonForDatatable = (request = {}) => {
                     exportOptions: {
                         columns: ':not(.no-export)'
                     }
-                }],
+                }], 
                 columnDefs: request.columnDefs,
                 initComplete: request.initComplete,
                 headerCallback: (thead) => {
@@ -92,5 +112,7 @@ export {
     validateInputText,
     validateNegativeValuesFromInput,
     showMessageToUser,
-    structJsonForDatatable
+    structJsonForDatatable,
+    assignSelect2Format,
+    getCurrentDatetime
 }
